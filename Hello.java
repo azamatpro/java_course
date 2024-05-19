@@ -2,18 +2,17 @@ import java.util.*;
 
 public class Hello {
   public static void main(String args[]){
-    List<Integer> nums = new ArrayList<Integer>();
+    //Set<Integer> nums = new HashSet<Integer>(); // makes valuse unique
+    Set<Integer> nums = new TreeSet<Integer>(); // makes values unique and sorts
 
-    // nums.add(1);
-    // nums.add(2);
-    // nums.add(3);
-    // nums.add(4);
+    nums.add(199);
+    nums.add(23);
+    nums.add(38);
+    nums.add(42);
+    nums.add(42);
 
-    //System.out.println(nums.indexOf(2)); // to get index of value
-    //System.out.println(nums.indexOf(0)); // to get value of index
-    for(int i = 0; i< 10; i++){
-      nums.add(i + 1);
-    }
-    System.out.println(nums);
+    Iterator<Integer> values = nums.iterator();
+    while(values.hasNext()) System.out.println(values.next());
+
   };
 };
