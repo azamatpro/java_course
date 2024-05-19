@@ -2,17 +2,24 @@ import java.util.*;
 
 public class Hello {
   public static void main(String args[]){
-    //Set<Integer> nums = new HashSet<Integer>(); // makes valuse unique
-    Set<Integer> nums = new TreeSet<Integer>(); // makes values unique and sorts
+    Map<String, Integer> students = new HashMap<String, Integer>();
 
-    nums.add(199);
-    nums.add(23);
-    nums.add(38);
-    nums.add(42);
-    nums.add(42);
+    students.put("Azamat",90);
+    students.put("Aziz",74);
+    students.put("Bakhodir",89);
+    students.put("Farrukh",83); // puts new element
 
-    Iterator<Integer> values = nums.iterator();
-    while(values.hasNext()) System.out.println(values.next());
+    students.remove("Rafikh",80); // removes
+    students.remove("Rafikh",90);
+
+    System.out.println(students);
+
+    System.out.println(students.values()); // return values of map in list
+    System.out.println(students.keySet()); // return keys of map in list
+
+    for(String key: students.keySet()){
+      System.out.println(key + " - " + students.get(key));
+    }
 
   };
 };
