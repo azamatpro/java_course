@@ -22,11 +22,15 @@ public class Hello {
     };
 
 
-    Thread t1 = new Thread(objA);
+    Thread t1 = new Thread(objA); // in new state
     Thread t2 = new Thread(objB);
 
-    t1.start();
+    t1.start(); // moved to runnable state from new state
     t2.start();
+    //After this, run() called in Runnable, and thread moves to running state from runnable state.
+    // When we call wait() or sleep(), thread moves to waiting state from running state, 
+    // notify() is used to move thread from waiting thread to runnable state.
+    // stop() is used to move thread to Dead state
 
     try{
       // To force main() that wait for threads to complete their task
