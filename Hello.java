@@ -1,13 +1,25 @@
-import java.io.*;
-import java.util.Scanner;
+class A extends Thread{
+  public void run(){
+    for(int i = 1; i <= 100; i++){
+      System.out.println("Hi " + i);
+    }
+  }
+}
+
+class B extends Thread{
+  public void run(){
+    for(int i = 1; i <= 100; i++){
+      System.out.println("Hello " + i);
+    }
+  }
+}
 
 public class Hello {
-  public static void main(String args[]) throws IOException{
-    System.out.println("Enter your thing!");
-    int num = 0;
-    try(BufferedReader bf = new BufferedReader(new InputStreamReader(System.in))){
-      num = Integer.parseInt(bf.readLine());
-    }
-    System.out.println("Your num is " + num);
+  public static void main(String args[]){
+    A objA = new A();
+    B objB = new B();
+
+    objA.start();
+    objB.start();
   };
 };
