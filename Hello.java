@@ -1,44 +1,19 @@
-class Counter {
-  int count;
-  public synchronized void increament(){
-    count++;
-  }
-}
+import java.util.*;
 
 public class Hello {
   public static void main(String args[]){
-    Counter c = new Counter();
+    List<Integer> nums = new ArrayList<Integer>();
 
-    Runnable objA = () -> {
-      for(int i = 1; i <= 1000; i++){
-        c.increament();
-      }
-    };
+    // nums.add(1);
+    // nums.add(2);
+    // nums.add(3);
+    // nums.add(4);
 
-    Runnable objB = () -> {
-      for(int i = 1; i <= 1000; i++){
-        c.increament();
-      }
-    };
-
-
-    Thread t1 = new Thread(objA); // in new state
-    Thread t2 = new Thread(objB);
-
-    t1.start(); // moved to runnable state from new state
-    t2.start();
-    //After this, run() called in Runnable, and thread moves to running state from runnable state.
-    // When we call wait() or sleep(), thread moves to waiting state from running state, 
-    // notify() is used to move thread from waiting thread to runnable state.
-    // stop() is used to move thread to Dead state
-
-    try{
-      // To force main() that wait for threads to complete their task
-      t1.join();
-      t2.join();
-    }catch(InterruptedException e){
-      System.out.println(e);  
+    //System.out.println(nums.indexOf(2)); // to get index of value
+    //System.out.println(nums.indexOf(0)); // to get value of index
+    for(int i = 0; i< 10; i++){
+      nums.add(i + 1);
     }
-    System.out.println(c.count);
+    System.out.println(nums);
   };
 };
