@@ -2,24 +2,25 @@ import java.util.*;
 
 public class Hello {
   public static void main(String args[]){
-    Map<String, Integer> students = new HashMap<String, Integer>();
+    List<Integer> nums = new ArrayList<>();
 
-    students.put("Azamat",90);
-    students.put("Aziz",74);
-    students.put("Bakhodir",89);
-    students.put("Farrukh",83); // puts new element
+    nums.add(45);
+    nums.add(981);
+    nums.add(7);
+    nums.add(18);
 
-    students.remove("Rafikh",80); // removes
-    students.remove("Rafikh",90);
+    Comparator<Integer> com = new Comparator<>(){
+      public int compare(Integer i, Integer j){
+        if(i % 10 > j % 10)
+          return 1;
+        else
+          return -1;
+      }
+    };
 
-    System.out.println(students);
+    Collections.sort(nums,com);
 
-    System.out.println(students.values()); // return values of map in list
-    System.out.println(students.keySet()); // return keys of map in list
-
-    for(String key: students.keySet()){
-      System.out.println(key + " - " + students.get(key));
-    }
+    System.out.println(nums);
 
   };
 };
