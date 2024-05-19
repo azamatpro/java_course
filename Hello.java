@@ -1,26 +1,12 @@
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Hello {
   public static void main(String args[]){
-    List<Integer> nums = new ArrayList<>();
-
-    nums.add(45);
-    nums.add(981);
-    nums.add(7);
-    nums.add(18);
-
-    Comparator<Integer> com = new Comparator<>(){
-      public int compare(Integer i, Integer j){
-        if(i % 10 > j % 10)
-          return 1;
-        else
-          return -1;
-      }
-    };
-
-    Collections.sort(nums,com);
-
-    System.out.println(nums);
-
+    List<Integer> nums = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+    
+    int res = nums.stream().filter(n -> n%2 == 0).map(n -> n*2).reduce(0, (nl,nw)-> nl+nw);
+    
+    System.out.println(res);
   };
 };
